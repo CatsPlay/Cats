@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Inventaire</title>
+  <?php
+$dsn = 'pgsql:host=postgresql-tyuialwaysdata.net;dbname=tyui_inventaire';
+$user = 'tyui';
+$password = '0ratr1ce';
+
+try {
+    $pdo = new PDO($dsn, $user, $password);
+    // Utilisez la connexion ici
+} catch (PDOException $e) {
+    echo 'Erreur de connexion : ' . $e->getMessage();
+}
+?>
+  <style>
+  thead{
+    color : blue;
+    font-size : 40;
+     yjv;
+  }
+  table{
+    
+  }
+  td,th{
+    border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+  <h1>
+    Inventaire
+  </h1>
+  <table>
+    <thead>
+      <th>
+        Ingrédients
+      </th>
+      <th>
+        Nombre
+      </th>
+    </thead>
+    <tbody>
+      <td>
+        pate
+      </td>
+      <td>
+        1
+      </td>
+    </tbody>
+  </table>
+   <tbody>
+  <?php
+$query = 'SELECT * FROM aliment';
+$result = $pdo->query($query);
+
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo '<tr>';
+    echo '<td>' . $row['nom_al'] . '</td>';
+    echo '<td>' . $row['nb'] . '</td>';
+    echo '</tr>';
+}
+?>
+   </tbody>
+  </table>
+</body>
+</html>
