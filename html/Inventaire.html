@@ -11,7 +11,7 @@ $password = '0ratr1ce';
 
 try {
     $pdo = new PDO($dsn, $user, $password);
-    // Utilisez la connexion ici
+    
 } catch (PDOException $e) {
     echo 'Erreur de connexion : ' . $e->getMessage();
 }
