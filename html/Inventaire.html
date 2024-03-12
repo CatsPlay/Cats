@@ -13,7 +13,7 @@ try {
     $pdo = new PDO($dsn, $user, $password);
     
 } catch (PDOException $e) {
-    echo 'Erreur de connexion : ' . $e->getMessage() ;
+    die('Erreur de connexion : ' . $e->getMessage());
 }
 ?>
   <style>
