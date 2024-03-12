@@ -57,8 +57,8 @@ $result = $pdo->query($query);
 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo '<tr>';
-    echo '<td>' . $row['nom_al'] . '</td>';
-    echo '<td>' . $row['nb'] . '</td>';
+    echo '<td>'.$row['nom_al'].'</td>';
+    echo '<td>'.$row['nb'].'</td>';
     echo '</tr>';
 }
     ?>
