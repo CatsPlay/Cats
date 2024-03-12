@@ -52,7 +52,7 @@ try {
     </tbody>
   </table>
    <tbody>
-  <?php
+    <?php
 $query = 'SELECT * FROM aliment';
 $result = $pdo->query($query);
 
@@ -62,7 +62,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo '<td>' . $row['nb'] . '</td>';
     echo '</tr>';
 }
-?>
+    ?>
    </tbody>
   </table>
 </body>
