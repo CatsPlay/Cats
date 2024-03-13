@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Site Web</title>
+    <script>
+        const themeButton = document.getElementById('theme-btn');
+        const body = document.body;
+
+        themeButton.addEventListener('click', () => {
+            body.classList.toggle('darkmode-activated');
+        });
+    </script>
     <style>
-        body {
+        body{
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
         }
-        .dark{
-        background-color: #000000;
+        body.light {
+            background-color: #f9f9f9;
+            color: #333333;
+        }
+        body.dark{
+            background-color: #000000,
+            color : #ffffff;
         }
         .container {
             max-width: 800px;
