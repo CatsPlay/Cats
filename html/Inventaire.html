@@ -54,12 +54,18 @@ try {
     <?php
 $query = 'SELECT * FROM aliment';
 $result = $pdo->query($query);
+$button = '';
 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo '<tr>';
     echo '<td>'.$row['nom_al'].'</td>';
-    echo '<td>'.$row['nb'].'</td>';
+    echo '<td>';
+    echo '<span id="quantite_'.$row['nom_al'].'">'.$row['nb'].'</span>';
+    echo '<button onclick="adjustQuantity(\''.$row['nom_al'].'\', \'plus\')">+</button>';
+    echo '<button onclick="adjustQuantity(\''.$row['nom_al'].'\', \'moins\')">-</button>';
+    echo '</td>';
     echo '</tr>';
+
 }
     ?>
    </tbody>
