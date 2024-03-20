@@ -1,0 +1,41 @@
+h1{
+  font-size: 40px;
+  justify-content: center;
+}
+#bandeau{
+  display : flex;
+  justify-content: center;
+  align-items: center;
+}
+.blue{
+  background-color: rgba(27, 27, 221, 0.9);
+}
+.red{
+  background-color: rgba(224, 12, 12, 0.858);
+}
+.black{
+  background-color: black;
+}
+thead{
+  color: blue;
+  font-size: 40;
+}
+.centrer{
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+nav.centrer{
+  margin-top: 0px;
+  color: black;
+}
+td,th{
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+#btn{
+  border-radius: 4px;
+}
