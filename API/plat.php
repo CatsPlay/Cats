@@ -35,6 +35,7 @@ try {
             <span id="nb_personne">0</span>
             <button onclick="adjustQuantity('plus')">+</button>
         </div>
+        <button id="afficherResultats">Valider</button>
         <div class="centrer">
             <table>
                 <thead>
@@ -42,23 +43,8 @@ try {
                         Plat possible
                     </th>
                 </thead>
-                <tbody>
-                    <?php
+                <tbody id="resultats">
                     
-                    $query = 'SELECT DISTINCT nom_plat FROM plat AS p1
-                    WHERE NOT EXISTS(
-                    SELECT * FROM aliment JOIN plat ON aliment.nom_al = plat.ingredient
-                    WHERE aliment.nb < plat.quantite
-                    AND plat.nom_plat = p1.nom_plat);';
-                    $result = $pdo->query($query);
-                
-                    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                        echo '<tr>';
-                        echo '<td class="ingredient">'.$row['nom_plat'].'</td>';
-                        echo '</tr>';
-                
-                    }
-                    ?>
                 </tbody>
             </table>
         </div>
@@ -77,6 +63,21 @@ try {
 
         spanQuantite.innerText = quantite;
     }
+    document.getElementById('afficherResultats').addEventListener('click', function() {
+    const nbPersonne = document.getElementById("nb_personne").innerText;
+
+    // Créez l'URL avec le paramètre nb_personne
+    const url = `update_nb_perso.php?nb_personne=${nbPersonne}`;
+
+    // Envoyez une requête GET au serveur
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            // Mettez à jour le contenu du tableau avec les résultats
+            document.getElementById('resultats').innerHTML = data;
+        })
+        .catch(error => console.error('Erreur lors de la récupération des résultats :', error));
+});
         </script>
     </body>
 </html>
